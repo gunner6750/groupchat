@@ -239,7 +239,7 @@ public class ServerUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         int portNumber=Integer.parseInt(portPane.getText());
-        if (serverSocket==null && portNumber>0){
+        if (portNumber>0){
         try {
             serverSocket = new ServerSocket(portNumber);
         } catch (IOException ex) {
