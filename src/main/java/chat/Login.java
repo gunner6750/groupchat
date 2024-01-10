@@ -34,16 +34,27 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        portPane1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         alert = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        namePane = new javax.swing.JTextPane();
         portPane = new javax.swing.JTextField();
+        namePane = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+
+        portPane1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                portPane1ActionPerformed(evt);
+            }
+        });
+        portPane1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                portPane1KeyPressed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -62,13 +73,6 @@ public class Login extends javax.swing.JFrame {
 
         alert.setForeground(new java.awt.Color(255, 0, 0));
 
-        namePane.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                namePaneKeyPressed(evt);
-            }
-        });
-        jScrollPane4.setViewportView(namePane);
-
         portPane.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 portPaneActionPerformed(evt);
@@ -78,6 +82,20 @@ public class Login extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 portPaneKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                portPaneKeyTyped(evt);
+            }
+        });
+
+        namePane.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                namePaneActionPerformed(evt);
+            }
+        });
+        namePane.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                namePaneKeyPressed(evt);
+            }
         });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -86,18 +104,20 @@ public class Login extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(alert, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(74, 74, 74)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(portPane, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(portPane, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(namePane, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(alert, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -110,7 +130,7 @@ public class Login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(namePane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
@@ -164,7 +184,7 @@ public class Login extends javax.swing.JFrame {
     public void bogin(){
         String name=namePane.getText();
         int portNumber=Integer.parseInt(portPane.getText());      
-        System.out.println(portNumber);
+//        System.out.println(portNumber);
         Chat chat = null;
         try {
             chat = new Chat(name,portNumber);
@@ -175,7 +195,7 @@ public class Login extends javax.swing.JFrame {
             new Thread( new Runnable() {
                 @Override
                     public void run() {
-                        alert.setText("unavailable port");
+                        alert.setText("unavailable port number of invalid name");
                     try {
                         Thread.sleep(2000);
                     } catch (InterruptedException ex1) {
@@ -194,14 +214,6 @@ public class Login extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void namePaneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_namePaneKeyPressed
-        // TODO add your handling code here:
-        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
-            bogin();
-            
-        }
-    }//GEN-LAST:event_namePaneKeyPressed
-
     private void portPaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portPaneActionPerformed
         // TODO add your handling code here:
         
@@ -209,10 +221,35 @@ public class Login extends javax.swing.JFrame {
 
     private void portPaneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_portPaneKeyPressed
         // TODO add your handling code here:
+        
         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
             namePane.requestFocus();            
         }
     }//GEN-LAST:event_portPaneKeyPressed
+
+    private void portPane1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portPane1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_portPane1ActionPerformed
+
+    private void portPane1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_portPane1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_portPane1KeyPressed
+
+    private void namePaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namePaneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_namePaneActionPerformed
+
+    private void namePaneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_namePaneKeyPressed
+        // TODO add your handling code here:
+        bogin();
+    }//GEN-LAST:event_namePaneKeyPressed
+
+    private void portPaneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_portPaneKeyTyped
+        // TODO add your handling code here:
+        if(!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_portPaneKeyTyped
     
     /**
      * @param args the command line arguments
@@ -258,8 +295,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextPane namePane;
+    private javax.swing.JTextField namePane;
     private javax.swing.JTextField portPane;
+    private javax.swing.JTextField portPane1;
     // End of variables declaration//GEN-END:variables
 }
