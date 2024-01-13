@@ -240,8 +240,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_namePaneActionPerformed
 
     private void namePaneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_namePaneKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
-            bogin();
+        // TODO add your handling code here:
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+        bogin();
         }
     }//GEN-LAST:event_namePaneKeyPressed
 
