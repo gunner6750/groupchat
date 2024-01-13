@@ -241,7 +241,9 @@ public class Login extends javax.swing.JFrame {
 
     private void namePaneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_namePaneKeyPressed
         // TODO add your handling code here:
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
         bogin();
+        }
     }//GEN-LAST:event_namePaneKeyPressed
 
     private void portPaneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_portPaneKeyTyped
