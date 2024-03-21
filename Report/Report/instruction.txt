@@ -1,0 +1,9 @@
+Step 1: Open Server app in App folder in Src
+Step 2: Input server number port you want to create
+Step 3: Open chat App
+Step 4: Input number Port already host
+Step 5: Input name and press Enter
+Step 6: Start Chatting
+For more details, please follow the instruction and read carefully the GUI part in the report, or you can check out the demo.
+In case your java version is not JDK21, you maybe can not open these app by runnable jar file, please Open the source code on your IDE
+and Run File the ServerUI.java and Login.java instead.
